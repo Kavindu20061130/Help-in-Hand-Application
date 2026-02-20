@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Let's Donate</title>
+    
+    <link rel="icon" href="logo2.png" type="image/png">
+
+    <style>
+       
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Cleaner, modern font */
+            background-color: #ffffff;
+            color: #333;
+        }
+
+        
+        .main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 8%; 
+            background-color: #ffffff;
+           
+        }
+
+        /* Logo Styling */
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .app-logo {
+            height: 60px; 
+            width: auto;
+        }
+
+        /* Menu List Styling */
+        .nav-menu ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 40px; /* Increased gap to match screenshot */
+        }
+
+        /* Menu Link Styling */
+        .nav-menu a {
+            text-decoration: none;
+            color: #555555; /* Slightly softer grey */
+            font-size: 16px;
+            font-weight: 400; /* Regular weight, not bold */
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: #4fa38b; /* Teal hover color */
+        }
+
+        /* Main Content Styling */
+        .content-area {
+            padding: 80px 20px; 
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Headline Styling */
+        h1 {
+            font-size: 42px;
+            margin-bottom: 25px;
+            font-weight: 600;
+            color: #222;
+        }
+
+        /* The specific teal color for the second part of the headline */
+        .highlight-text {
+            color: #5AB9A7; /* Matches the teal/green in the screenshot */
+            font-weight: 700;
+        }
+
+        /* Paragraph Styling */
+        .content-area p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #666666; /* Grey text */
+            max-width: 900px; /* Prevents text from stretching full width */
+            margin: 0 auto; /* Centers the paragraph block */
+        }
+
+.hero-section {
+            background-color: #64B5A5; /* Teal background */
+            margin: 20px 4%; /* Spacing from sides */
+            padding: 60px 20px;
+            border-radius: 25px;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-section h2 {
+            font-size: 36px;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .hero-section p {
+            max-width: 900px;
+            margin: 0 auto 50px auto;
+            font-size: 16px;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+
+
+       /* --- CARDS GRID --- */
+        .card-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background-color: white;
+            padding: 12px;
+            border-radius: 20px;
+            width: 250px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+
+            /* --- NEW: Smooth Float Animation --- */
+            /* This makes the movement smooth instead of instant */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden; 
+        }
+                               
+       
+        .card:hover {
+            transform: translateY(-10px); /* Moves the card UP by 10 pixels */
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2); /* Makes the shadow deeper and softer */
+        }
+
+        .card-img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 15px 15px 5px 5px;
+            margin-bottom: 10px;
+            background-color: #ddd;
+
+            
+            transition: transform 0.5s ease;
+        }
+
+        
+        .card:hover .card-img {
+            transform: scale(1.1); /* Zooms image in by 10% */
+        }
+
+        .card-btn {
+            padding: 12px 15px;
+            color: white;
+            font-weight: 700;
+            font-size: 14px;
+            border-radius: 8px 8px 15px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        /* Button Colors */
+        .btn-blue   { background-color: #2D9CDB; }
+        .btn-green  { background-color: #4CAF50; }
+        .btn-orange { background-color: #F79F1F; }
+        .btn-purple { background-color: #574B90; }
+
+        .visa-icon {
+            background: white;
+            color: #1a1f71;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-size: 10px;
+            font-weight: 900;
+            font-style: italic;
+        }
+         .card-link {
+         text-decoration: none;
+         display: block;
+         }
+
+
+              
+
+        .stats-section {
+            padding: 60px 4%;
+            background-color: #f9f9f9;
+            text-align: center;
+
+            
+           margin: 50px 4%; /* Adds 50px space top/bottom and keeps side spacing */
+    
+            
+              border-radius: 20px; 
+
+        }
+        
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 30px;
+        }
+
+        .stat-box {
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+
+           
+            opacity: 0;                   
+            transform: translateY(30px);   
+            transition: all 0.8s ease-out; 
+        }
+
+        /* --- ADD THIS NEW CLASS --- */
+        .stat-box.visible {
+            opacity: 1;                    /* Fade in */
+            transform: translateY(0);      /* Float up to original position */
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: #64B5A5; /* Teal color */
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 18px;
+            color: #555;
+            font-weight: 500;
+        }
+
+        /* --- NEW ADDITIONS: NEWSLETTER --- */
+        .newsletter-section {
+            background-color: #eaf7f5; /* Light teal background */
+            padding: 50px 20px;
+            text-align: center;
+            margin: 20px 4%;
+            border-radius: 20px;
+        }
+
+        .newsletter-section h3 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .newsletter-form {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .newsletter-input {
+            padding: 12px 20px;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 30px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .newsletter-btn {
+            padding: 12px 30px;
+            background-color: #64B5A5;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .newsletter-btn:hover {
+            background-color: #4fa38b;
+        }
+
+         .newsletter-success {
+           display: none;
+           margin-top: 20px;
+           padding: 14px 20px;
+           background-color: #dff3ef;
+           color: #2e7d6f;
+           border-radius: 12px;
+           font-size: 15px;
+           font-weight: 500;
+           max-width: 500px;
+           margin-left: auto;
+           margin-right: auto;
+          animation: fadeSlide 0.6s ease forwards;
+         }
+
+         .newsletter-section p {
+      color: #000;
+     }
+
+
+@keyframes fadeSlide {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+ 
+  /* --- FOOTER STYLES (Clean Version) --- */
+        .main-footer {
+             background-color: #222222;
+             color: #ffffff;
+             width: 100%;
+             margin: 0;
+             padding: 60px 0 20px 0;
+        }
+
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 40px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-column h4 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #64B5A5; /* Teal Heading */
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column a {
+            color: #bbbbbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid #444;
+            padding-top: 20px;
+            margin-top: 40px;
+            font-size: 14px;
+            color: #888;
+        }
+
+
+    </style>
+</head>
+<body>
+<header class="main-header">
+    <div class="logo-container">
+        <img src="logo.png" alt="Help in Hand Logo" class="app-logo">
+    </div>
+
+    <nav class="nav-menu">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/online">Online</a></li>
+            <li><a href="/charity/register">For Charity</a></li>
+            <li><a href="/materials">Materials</a></li>
+            <li><a href="/about">About us</a></li>
+        </ul>
+    </nav>
+</header>
+
+
+    <div class="content-area">
+        <h1>Your Help Can Make a <span class="highlight-text">Real Difference</span></h1>
+        
+        <p>
+            Help-in-Hand is a simple yet powerful platform that brings donors and orphanages together 
+            to support those in need. By donating clothes, books, or household items and also funding 
+            them through the app, you help registered charities and orphanages directly access essential 
+            resources. Your contribution ensures timely support, strengthens community care, and creates 
+            a trustworthy, organized way to make a meaningful difference in people’s lives.
+        </p>
+    </div>
+
+
+    <div class="hero-section">
+        
+        <h2>Why Your Support Matters</h2>
+        <p>
+            In times of crisis, solidarity and compassion are our greatest strengths. Your generosity can 
+            bring comfort, safety, and hope to those suffering and empower communities to start rebuilding 
+            with dignity. Let us come together as one nation to heal, to rebuild, and to rise again.
+        </p>
+
+       <div class="card-container">
+
+    <!-- Donate Online -->
+    <div class="card">
+        <img src="donate.jpg" alt="Donate Online" class="card-img">
+        <a href="/online" class="card-link">
+            <div class="card-btn btn-blue">
+                <span>Donate Online</span>
+                <span class="visa-icon">VISA</span>
+            </div>
+        </a>
+    </div>
+
+    <!-- Register Charity -->
+    <div class="card">
+        <img src="Registercharity.jpg" alt="Register Charity" class="card-img">
+        <a href="/charity/register" class="card-link">
+            <div class="card-btn btn-green">
+                <span>Register Charity</span>
+            </div>
+        </a>
+    </div>
+
+    <!-- Donate Materials -->
+    <div class="card">
+        <img src="materials.jpg" alt="Donate Materials" class="card-img">
+        <a href="/materials" class="card-link">
+            <div class="card-btn btn-orange">
+                <span>Donate Materials</span>
+            </div>
+        </a>
+    </div>
+
+    <!-- About Us -->
+    <div class="card">
+        <img src="aboutus.jpg" alt="About Us" class="card-img">
+        <a href="/about" class="card-link">
+            <div class="card-btn btn-purple">
+                <span>About Us</span>
+            </div>
+        </a>
+    </div>
+
+</div>
+
+</div> <!-- CLOSE hero-section -->
+
+
+<div class="stats-section" id="statsSection">
+        <div class="stats-container">
+            <div class="stat-box">
+                <span class="stat-number" data-target="1250" data-suffix="+">0</span>
+                <span class="stat-label">Donations Received</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number" data-target="85" data-suffix="+">0</span>
+                <span class="stat-label">Orphanages Helped</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number" data-target="5000" data-suffix="+">0</span>
+                <span class="stat-label">Lives Impacted</span>
+            </div>
+        </div>
+    </div>
+
+         <div class="newsletter-section">
+    <h3>Stay Updated</h3>
+    <p>Join our community to receive updates on how your donations are changing lives.</p>
+
+    <form class="newsletter-form" id="newsletterForm">
+        <input type="email" placeholder="Enter your email address" class="newsletter-input" required>
+        <button type="submit" class="newsletter-btn">Subscribe</button>
+    </form>
+
+    <!-- Success Message -->
+      <div class="newsletter-success" id="newsletterSuccess">
+        Thank you for subscribing! You are now part of our mission.
+     </div>
+     </div>
+
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>About Help-in-Hand</h4>
+                <p style="color: #bbb; line-height: 1.6;">
+                    We are dedicated to bridging the gap between donors and those in need across Sri Lanka. Together, we can rebuild stronger communities.
+                </p>
+            </div>
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                      <li><a href="/online">Donate Now</a></li>
+                    <li><a href="/charity/register">Register as Charity</a></li>
+                    <li><a href="/about#partners">Our Partners</a></li>
+                    <li><a href="/about#stories">Success Stories</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li><a href="#">info@helpinhand.lk</a></li>
+                    <li><a href="#">+94 11 234 5678</a></li>
+                    <li><a href="#">Colombo 07, Sri Lanka</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Help-in-Hand Foundation. All Rights Reserved.
+        </div>
+    </footer>
+</body>
+</html>
+
+
+
+
+<script>
+        // 1. Select the section and elements
+        const statsSection = document.getElementById('statsSection');
+        const statNumbers = document.querySelectorAll('.stat-number');
+        const statBoxes = document.querySelectorAll('.stat-box');
+        let started = false; // Ensures animation runs only once
+
+        // 2. The Counting Function
+        function animateStats() {
+            statNumbers.forEach(stat => {
+                const target = +stat.getAttribute('data-target');
+                const suffix = stat.getAttribute('data-suffix');
+                const duration = 2000; // Animation takes 2 seconds
+                const increment = target / (duration / 16); // Calculate speed
+
+                let current = 0;
+                const updateCount = () => {
+                    current += increment;
+                    if (current < target) {
+                        stat.innerText = Math.ceil(current).toLocaleString() + suffix;
+                        requestAnimationFrame(updateCount);
+                    } else {
+                        stat.innerText = target.toLocaleString() + suffix;
+                    }
+                };
+                updateCount();
+            });
+        }
+
+        // 3. The Scroll Trigger (Intersection Observer)
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                // If the section is visible on screen...
+                if (entry.isIntersecting && !started) {
+                    
+                    // Reveal the boxes one by one (staggered effect)
+                    statBoxes.forEach((box, index) => {
+                        setTimeout(() => {
+                            box.classList.add('visible');
+                        }, index * 200); // 200ms delay between each box
+                    });
+
+                    // Start the counting
+                    animateStats();
+                    
+                    started = true; // Stop it from running again
+                }
+            });
+        }, { threshold: 0.5 }); // Trigger when 50% of section is visible
+
+        observer.observe(statsSection);
+    
+    const newsletterForm = document.getElementById("newsletterForm");
+    const newsletterSuccess = document.getElementById("newsletterSuccess");
+
+    newsletterForm.addEventListener("submit", function (e) {
+        e.preventDefault(); // prevent page refresh
+
+        newsletterSuccess.style.display = "block";
+        newsletterForm.reset();
+    });
+</script>

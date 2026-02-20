@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate Online - Rebuilding Sri Lanka</title>
+    <link rel="icon" href="logo2.png" type="image/png">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ffffff;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        
+        .main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 8%;
+            background-color: #ffffff;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-container img {
+            height: 60px;
+            width: auto;
+        }
+
+        .nav-menu ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #555555;
+            font-size: 16px;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: #4fa38b;
+        }
+
+        /* ---------- SPLIT CONTAINER ---------- */
+        .main-container {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 40px 5%;
+            gap: 50px;
+            max-width: 1300px;
+            margin: 0 auto;
+            align-items: flex-start;
+        }
+
+        /* ---------- LEFT PANEL ---------- */
+        .left-panel {
+            flex: 1;
+            min-width: 450px;
+            height: 780px;
+            position: relative;
+        }
+
+        .image-card {
+            width: 100%;
+            height: 100%;
+            background-image: url('payi.jpeg');
+            background-size: cover;
+            background-position: center;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .image-text-overlay {
+            position: absolute;
+            bottom: 20px;
+            left: 25px;
+            color: rgba(255,255,255,0.7);
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        /* ---------- RIGHT PANEL ---------- */
+        .right-panel {
+            flex: 1;
+            min-width: 450px;
+        }
+
+        .intro-text {
+            border-left: 5px solid #64B5A5;
+            padding-left: 20px;
+            margin-bottom: 30px;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .form-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .badge {
+            background-color: #e6f7f2;
+            color: #64B5A5;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 13px;
+        }
+
+        .payment-logos i {
+            font-size: 26px;
+            margin-left: 10px;
+        }
+
+        h2.form-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        p.form-desc {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 30px;
+        }
+
+        .currency-row {
+            display: flex;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .currency-select {
+            padding: 14px 20px;
+            border: none;
+            border-right: 1px solid #eee;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .amount-input {
+            flex: 1;
+            padding: 14px;
+            border: none;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .preset-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .preset-btn {
+            padding: 14px;
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .preset-btn.active {
+            border-color: #64B5A5;
+            background-color: #e6f7f2;
+            color: #64B5A5;
+        }
+
+        .field-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .checkbox-row {
+            display: flex;
+            align-items: center;
+            font-size: 13px;
+            margin-bottom: 25px;
+        }
+
+        .checkbox-row input {
+            margin-right: 10px;
+            accent-color: #64B5A5;
+        }
+
+        .donate-btn {
+            width: 100%;
+            padding: 16px;
+            background-color: #84C0B0;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 700;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .donate-btn:hover {
+            background-color: #64B5A5;
+        }
+
+        /* ---------- FOOTER ---------- */
+        .footer {
+            background: #000;
+            color: #fff;
+            text-align: center;
+            padding: 25px;
+            font-size: 13px;
+            margin-top: 20px;
+        }
+
+        @media(max-width: 950px) {
+            .main-container { flex-direction: column; }
+            .left-panel { height: 400px; min-width: auto; }
+            .right-panel { min-width: auto; }
+            .field-row { flex-direction: column; }
+        }
+    </style>
+</head>
+
+<body>
+<header class="main-header">
+    <div class="logo-container">
+        <img src="logo.png" alt="Help in Hand Logo" class="app-logo">
+    </div>
+
+    <nav class="nav-menu">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/online">Online</a></li>
+            <li><a href="/charity/register">For Charity</a></li>
+             <li><a href="/materials">Materials</a></li>
+            <li><a href="/about">About us</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="main-container">
+
+    <div class="left-panel">
+        <div class="image-card"></div>
+        <div class="image-text-overlay">5G</div>
+    </div>
+
+    <div class="right-panel">
+        <div class="intro-text">
+            Every contribution counts in delivering essential support to orphanages and communities in need across Sri Lanka.
+        </div>
+
+        <div class="form-header-row">
+            <span class="badge">Online Donations</span>
+            <div class="payment-logos">
+                <i class="fab fa-cc-mastercard" style="color:#eb001b;"></i>
+                <i class="fab fa-cc-visa" style="color:#1a1f71;"></i>
+                <i class="fab fa-cc-amex" style="color:#006fcf;"></i>
+            </div>
+        </div>
+
+        <h2 class="form-title">Enter the amount*</h2>
+        <p class="form-desc">Donate using Visa, MasterCard, or UnionPay.</p>
+
+        <form id="donationForm">
+            <div class="currency-row">
+                <select class="currency-select">
+                    <option>LKR</option>
+                    <option>USD</option>
+                    <option>EUR</option>
+                </select>
+                <input type="number" class="amount-input" id="customAmount" placeholder="Amount">
+            </div>
+
+            <div class="preset-grid">
+                <button type="button" class="preset-btn" onclick="setAmount(1000, this)">Rs 1,000</button>
+                <button type="button" class="preset-btn" onclick="setAmount(2500, this)">Rs 2,500</button>
+                <button type="button" class="preset-btn" onclick="setAmount(5000, this)">Rs 5,000</button>
+                <button type="button" class="preset-btn" onclick="setAmount(10000, this)">Rs 10,000</button>
+                <button type="button" class="preset-btn" onclick="setAmount(25000, this)">Rs 25,000</button>
+                <button type="button" class="preset-btn" onclick="setAmount(50000, this)">Rs 50,000</button>
+            </div>
+
+            <div class="field-row">
+                <input type="text" class="form-input" placeholder="Name *" required>
+                <input type="email" class="form-input" placeholder="Email *" required>
+            </div>
+
+            <div class="field-row">
+                <select class="form-input">
+                    <option>Select country *</option>
+                    <option>Sri Lanka</option>
+                    <option>USA</option>
+                    <option>UK</option>
+                    <option>Australia</option>
+                </select>
+                <input type="text" class="form-input" placeholder="Phone (Optional)">
+            </div>
+
+            <div class="checkbox-row">
+                <input type="checkbox" id="anon">
+                <label for="anon">Show my name as "Anonymous Donor"</label>
+            </div>
+
+            <button type="submit" class="donate-btn">Donate</button>
+        </form>
+    </div>
+</div>
+
+<footer class="footer">
+    © 2026 Help-in-Hand Foundation. All Rights Reserved.
+</footer>
+
+<script>
+    // Helper to handle the preset buttons (No changes needed here)
+    function setAmount(val, btn) {
+        document.getElementById('customAmount').value = val;
+        document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+    }
+
+    document.getElementById('donationForm').addEventListener('submit', function(e) {
+        e.preventDefault(); // Stop the default form submission
+        
+        const amount = document.getElementById('customAmount').value;
+        
+        // Validation
+        if (!amount || amount <= 0) {
+            alert("Please enter a valid donation amount.");
+            return;
+        }
+
+        // --- NEW LOGIC: Navigate to the Java Controller ---
+        // We redirect the browser to the /payment URL and pass the amount
+        window.location.href = "/payment?amount=" + amount;
+    });
+</script>
+
+</body>
+</html>

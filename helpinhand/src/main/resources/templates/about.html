@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>About Us - Help-in-Hand</title>
+    
+    <link rel="icon" href="logo2.png" type="image/png">
+
+    <style>
+        
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ffffff;
+            color: #333;
+        }
+
+        /* Header Container */
+        .main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 8%;
+            background-color: #ffffff;
+            position: sticky; /* Keeps header at top */
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* Slight shadow for separation */
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .app-logo {
+            height: 60px; 
+            width: auto;
+        }
+
+        .nav-menu ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #555555;
+            font-size: 16px;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: #64B5A5;
+        }
+
+        /* --- ABOUT PAGE SPECIFIC STYLES --- */
+
+        .page-header {
+            background-color: #eaf7f5;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 42px;
+            color: #222;
+            margin: 0;
+        }
+
+        .highlight-text {
+            color: #64B5A5;
+            font-weight: 700;
+        }
+
+        /* Creator Section */
+        .creator-section {
+            max-width: 1100px;
+            margin: 60px auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .creator-image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .creator-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 20px 20px 0px #64B5A5; /* Teal offset shadow style */
+        }
+
+        .creator-content {
+            flex: 1.5;
+            min-width: 300px;
+        }
+
+        .creator-content h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .creator-content h4 {
+            color: #64B5A5;
+            font-size: 20px;
+            margin-top: -15px;
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+
+        .creator-content p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        /* Mission Cards */
+        .mission-section {
+            background-color: #64B5A5;
+            padding: 80px 4%;
+            text-align: center;
+            color: white;
+        }
+
+        .mission-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .mission-card {
+            background: white;
+            color: #333;
+            padding: 30px;
+            border-radius: 15px;
+            width: 300px;
+            text-align: left;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .mission-card h3 {
+            color: #64B5A5;
+            margin-top: 0;
+        }
+
+        /* Success Stories Section */
+        .stories-section {
+            padding: 80px 4%;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .story-container {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .story-box {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 15px;
+            width: 350px;
+            text-align: left;
+            border-left: 5px solid #64B5A5;
+        }
+
+        .story-box p {
+            font-style: italic;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .story-author {
+            font-weight: bold;
+            color: #222;
+            margin-top: 15px;
+            display: block;
+        }
+
+        /* --- NEW PARTNERS SECTION STYLES --- */
+        .partners-section {
+            background-color: #f9fbfb; /* Very light teal/grey background */
+            padding: 80px 4%;
+            text-align: center;
+        }
+
+        .partners-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        .partner-card {
+            background: white;
+            width: 220px; /* Fixed width for uniform look */
+            padding: 30px 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); /* Soft shadow */
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid transparent;
+        }
+
+        .partner-card:hover {
+            transform: translateY(-10px); /* Lifts up on hover */
+            box-shadow: 0 15px 30px rgba(100, 181, 165, 0.2); /* Teal glow shadow */
+            border-color: #e0f2ef;
+        }
+
+        .partner-logo {
+            height: 60px; /* Ensures all logos are same height */
+            width: auto;
+            max-width: 100%;
+            object-fit: contain;
+            margin-bottom: 20px;
+            filter: grayscale(100%); /* Black & white default */
+            opacity: 0.6;
+            transition: all 0.3s ease;
+        }
+
+        .partner-card:hover .partner-logo {
+            filter: grayscale(0%); /* Full color on hover */
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        .partner-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #555;
+            margin: 0;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        /* --- FOOTER STYLES (Clean Version) --- */
+        .main-footer {
+            background-color: #222222;
+            color: #ffffff;
+            padding: 60px 4% 20px 4%;
+            margin-top: 0; /* Ensures no huge gap after partners */
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 40px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-column h4 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #64B5A5; /* Teal Heading */
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column a {
+            color: #bbbbbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid #444;
+            padding-top: 20px;
+            margin-top: 40px;
+            font-size: 14px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo-container">
+            <img src="logo.png" alt="help in hand" class="app-logo">
+        </div>
+
+        <nav class="nav-menu">
+            <ul>
+                 <li><a href="/">Home</a></li>
+                
+                <li><a href="#about-creator">About Us</a></li>
+                <li><a href="#stories">Success Stories</a></li>
+                <li><a href="#partners">Our Partners</a></li>
+                
+                <li><a href="/charity">Charity Instructions</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="page-header">
+        <h1>Building a <span class="highlight-text">Greener, Kinder</span> Future</h1>
+        <p style="max-width: 700px; margin: 20px auto; color: #666; line-height: 1.6;">
+            Help-in-Hand is more than just a donation platform. It is a movement to reduce waste, reuse resources, and help those in need efficiently.
+        </p>
+    </div>
+
+    <div id="about-creator" class="creator-section">
+        <div class="creator-image">
+            <img src="logo3.jpg" alt="Help in Hand">
+        </div>
+        <div class="creator-content">
+            <h2>About the Creator</h2>
+            <h4>Kavindu Akash | Edith Cowan University</h4>
+            
+            <p>
+                My name is Kavindu Akash, a student at Edith Cowan University, and I created the 
+                <strong>Help-in-Hand</strong> web application to support orphanages and charities that struggle to receive timely and essential donations.
+            </p>
+            <p>
+                This platform is built on a <strong>green concept</strong>, promoting sustainability by encouraging item reuse, reducing waste, saving trees, and minimizing pollution through organized, local donations.
+            </p>
+            <p>
+                Since its launch, Help-in-Hand has connected <strong>1,200+ donors</strong> with over <strong>85 registered charity organizations</strong>, enabling the successful redistribution of more than <strong>6,500 donated items</strong>, including clothes, books, and household goods. By combining technology with social responsibility, this initiative aims to build a cleaner environment and a more compassionate society where help truly reaches the hands that need it most.
+            </p>
+        </div>
+    </div>
+
+    <div class="mission-section">
+        <h2>Our Core Values</h2>
+        <p>Why we do what we do.</p>
+        
+        <div class="mission-grid">
+            <div class="mission-card">
+                <h3>Sustainability</h3>
+                <p>We believe in a circular economy. By donating used items instead of discarding them, we reduce landfill waste and pollution, giving every item a second life.</p>
+            </div>
+            <div class="mission-card">
+                <h3>Transparency</h3>
+                <p>We ensure that every donation is tracked and reaches a verified charity. We bridge the gap directly between the donor and the orphanage.</p>
+            </div>
+            <div class="mission-card">
+                <h3>Community</h3>
+                <p>We are building a network of kindness. From local donors to large orphanages, we connect Sri Lankans to support each other.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="stories" class="stories-section">
+        <h2>Success Stories</h2>
+        <p style="color: #666; margin-bottom: 30px;">Real impact from real donations.</p>
+
+        <div class="story-container">
+            <div class="story-box">
+                <p>"We used to struggle to find textbooks for our O-Level students. Thanks to Help-in-Hand, we received 50 sets of math and science books within a week. The system is so fast and transparent."</p>
+                <span class="story-author">- Matara Children's Home</span>
+            </div>
+
+            <div class="story-box">
+                <p>"I had so many clothes my children had outgrown. I didn't want to throw them away. This app made it easy to find a nearby shelter that actually needed specifically those sizes."</p>
+                <span class="story-author">- Dilshan P., Donor from Colombo</span>
+            </div>
+
+            <div class="story-box">
+                <p>"The furniture donation we received helped us set up a new study area for the girls. It is amazing to see how technology can bring happiness to these children."</p>
+                <span class="story-author">- Sunshine Care Center, Kandy</span>
+            </div>
+        </div>
+    </div>
+<div id="partners" class="partners-section">
+        <h2>Our Trusted Partners</h2>
+        <p style="color: #666; max-width: 600px; margin: 10px auto;">
+            We work with leading organizations to ensure your donations reach the right hands safely and efficiently.
+        </p>
+
+        <div class="partners-grid">
+            
+            <div class="partner-card">
+                <img src="p1.png" alt="Red Cross" class="partner-logo">
+                <h4 class="partner-name">Red Cross</h4>
+            </div>
+
+            <div class="partner-card">
+                <img src="p2.jpg" alt="SOS Villages" class="partner-logo">
+                <h4 class="partner-name">SOS Villages</h4>
+            </div>
+
+            <div class="partner-card">
+                <img src="p3.jpg" alt="ECU University" class="partner-logo">
+                <h4 class="partner-name">ECU University</h4>
+            </div>
+
+            <div class="partner-card">
+                <img src="p4.avif" alt="Green Earth" class="partner-logo">
+                <h4 class="partner-name">Green Earth</h4>
+            </div>
+
+        </div> </div> <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>About Help-in-Hand</h4>
+                <p style="color: #bbb; line-height: 1.6;">
+                    We are dedicated to bridging the gap between donors and those in need across Sri Lanka. Together, we can rebuild stronger communities.
+                </p>
+            </div>
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                      <li><a href="/online">Donate Now</a></li>
+                    <li><a href="/charity/register">Register as Charity</a></li>
+                    <li><a href="/about#partners">Our Partners</a></li>
+                    <li><a href="/about#stories">Success Stories</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li><a href="mailto:info@helpinhand.lk">info@helpinhand.lk</a></li>
+                    <li><a href="tel:+94112345678">+94 11 234 5678</a></li>
+                    <li><a href="#">Colombo 07, Sri Lanka</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Help-in-Hand Foundation. All Rights Reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
