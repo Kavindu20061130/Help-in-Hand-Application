@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Donate Materials | Help in Hand</title>
+    <link rel="icon" href="logo2.png" type="image/png">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #ffffff;
+            color: #333;
+
+            /* Footer bottom fix */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 8%;
+            background-color: #ffffff;
+        }
+
+        .app-logo {
+            height: 60px;
+        }
+
+        .nav-menu ul {
+            list-style: none;
+            display: flex;
+            gap: 40px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #555;
+            font-size: 16px;
+        }
+
+        .nav-menu a:hover {
+            color: #4fa38b;
+        }
+
+        .page-wrapper {
+            max-width: 1100px;
+            margin: 60px auto;
+            padding: 0 20px;
+
+            /* Push footer down */
+            flex: 1;
+        }
+
+        h1 {
+            font-size: 36px;
+        }
+
+        p.subtitle {
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        .materials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .material-card {
+            background: #f9f9f9;
+            padding: 25px;
+            border-radius: 16px;
+        }
+
+        .material-card h3 {
+            margin-top: 0;
+            color: #4fa38b;
+        }
+
+        .donate-btn {
+            margin-top: 15px;
+            padding: 12px;
+            width: 100%;
+            background: #4fa38b;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        .donate-btn:hover {
+            background: #3e8f78;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: #fff;
+            padding: 30px;
+            width: 400px;
+            border-radius: 12px;
+        }
+
+        .modal-content input,
+        .modal-content textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        .confirm-btn {
+            width: 100%;
+            padding: 12px;
+            background: #4fa38b;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        footer {
+            padding: 25px;
+            text-align: center;
+            background: #000;
+            color: #fff;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+
+<header class="main-header">
+    <img src="logo.png" class="app-logo" alt="Help in Hand">
+    <nav class="nav-menu">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/online">Online</a></li>
+            <li><a href="/charity/register">For Charity</a></li>
+            <li><a href="/materials" style="font-weight:600;color:#333;">Materials</a></li>
+            <li><a href="/about">About us</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="page-wrapper">
+    <h1>Donate Materials</h1>
+    <p class="subtitle">These registered charities currently need the following materials.</p>
+
+    <div class="materials-grid">
+        <div class="material-card">
+            <h3>Hope Orphanage</h3>
+            <p><strong>Needs:</strong> Children's clothes, school bags</p>
+            <button class="donate-btn" onclick="openModal('Hope Orphanage')">Donate</button>
+        </div>
+
+        <div class="material-card">
+            <h3>Little Hearts Home</h3>
+            <p><strong>Needs:</strong> Dry food, rice, canned items</p>
+            <button class="donate-btn" onclick="openModal('Little Hearts Home')">Donate</button>
+        </div>
+
+        <div class="material-card">
+            <h3>Bright Future Children Care</h3>
+            <p><strong>Needs:</strong> Books, stationery, notebooks</p>
+            <button class="donate-btn" onclick="openModal('Bright Future Children Care')">Donate</button>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal" id="donationModal">
+    <div class="modal-content">
+        <h3>Pickup Address</h3>
+
+        <form action="/materials/donate" method="post">
+            <input type="hidden" name="charityName" id="charityName">
+            <input type="text" name="donorName" placeholder="Your Name" required>
+            <textarea name="pickupAddress" placeholder="Pickup Address" required></textarea>
+            <button type="submit" class="confirm-btn">Confirm Donation</button>
+        </form>
+    </div>
+</div>
+
+<footer>
+    © 2026 Help-in-Hand Foundation. All Rights Reserved.
+</footer>
+
+<script>
+    function openModal(charity) {
+        document.getElementById("charityName").value = charity;
+        document.getElementById("donationModal").style.display = "flex";
+    }
+</script>
+
+</body>
+</html>

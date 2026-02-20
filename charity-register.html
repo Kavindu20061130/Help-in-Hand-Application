@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Charity | Help in Hand</title>
+    <link rel="icon" href="/logo2.png" type="image/png">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ffffff;
+            color: #333;
+        }
+
+       
+        .main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 8%;
+            background-color: #ffffff;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .app-logo {
+            height: 60px;
+            width: auto;
+        }
+
+        .nav-menu ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #555555;
+            font-size: 16px;
+            font-weight: 400;
+        }
+
+        .nav-menu a:hover {
+            color: #4fa38b;
+        }
+
+       
+        .form-wrapper {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 40px;
+            background: #f9f9f9;
+            border-radius: 14px;
+        }
+
+        .form-title {
+            font-size: 28px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #222;
+        }
+
+        .form-subtitle {
+            font-size: 15px;
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 14px;
+            font-size: 14px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            border-color: #4fa38b;
+        }
+
+        textarea {
+            min-height: 110px;
+            resize: vertical;
+        }
+
+        .two-col {
+            display: flex;
+            gap: 20px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            font-size: 17px;
+            font-weight: 700;
+            background: #4fa38b;
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 25px;
+        }
+
+        .submit-btn:hover {
+            background: #3e8f78;
+        }
+
+        footer {
+            margin-top: 60px;
+            padding: 25px;
+            text-align: center;
+            background: #222;
+            color: #fff;
+            font-size: 13px;
+        }
+
+        @media (max-width: 768px) {
+            .two-col {
+                flex-direction: column;
+            }
+
+            .nav-menu ul {
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+<header class="main-header">
+    <div class="logo-container">
+        <img src="/logo.png" alt="Help in Hand Logo" class="app-logo">
+    </div>
+
+    <nav class="nav-menu">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/online">Online</a></li>
+            <li><a href="/charity/register" style="font-weight:600;color:#333;">For Charity</a></li>
+            <li><a href="/materials">Materials</a></li>
+            <li><a href="/about">About us</a></li>
+        </ul>
+    </nav>
+</header>
+
+
+<div class="form-wrapper">
+    <h1 class="form-title">Charity Registration</h1>
+    <p class="form-subtitle">
+        Only government-registered charities are allowed to join Help in Hand.
+        Please provide valid registration details for verification.
+    </p>
+
+    
+    <form action="/charity/register" method="post">
+
+        <div class="form-group">
+            <label>Registered Charity Name *</label>
+            <input type="text" required>
+        </div>
+
+        <div class="form-group">
+            <label>Government Charity Registration Number *</label>
+            <input type="text" required>
+        </div>
+
+        <div class="form-group">
+            <label>Unique Charity ID (if available)</label>
+            <input type="text">
+        </div>
+
+        <div class="two-col">
+            <div class="form-group">
+                <label>Contact Person *</label>
+                <input type="text" required>
+            </div>
+
+            <div class="form-group">
+                <label>Contact Phone *</label>
+                <input type="tel" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Email Address *</label>
+            <input type="email" required>
+        </div>
+
+        <div class="form-group">
+            <label>Registered Address *</label>
+            <textarea required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Types of Donations Accepted *</label>
+            <select required>
+                <option value="">Select donation type</option>
+                <option>Clothes</option>
+                <option>Food</option>
+                <option>Books</option>
+                <option>Medical Supplies</option>
+                <option>Household Items</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>About the Charity *</label>
+            <textarea required></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Submit for Verification</button>
+    </form>
+</div>
+
+<footer>
+    © 2026 Help-in-Hand Foundation. All Rights Reserved.
+</footer>
+
+</body>
+</html>
+
